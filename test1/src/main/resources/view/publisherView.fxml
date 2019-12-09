@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.company.gui.controller.PublisherController">
+
+    <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
+        <Label fx:id="archiveNewsLabel" text="Архивные новости" />
+        <TextArea fx:id="archiveText" editable="false" />
+    </FlowPane>
+
+    <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
+        <Label fx:id="addNewsLabel" text="Новая новость" />
+        <TextArea fx:id="addNewsText" />
+        <Button fx:id="addNewsButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" onAction="#addNewsButtonClicked" text="Опубликовать" />
+    </FlowPane>
+   <opaqueInsets>
+      <Insets top="10.0" />
+   </opaqueInsets>
+
+</VBox>
