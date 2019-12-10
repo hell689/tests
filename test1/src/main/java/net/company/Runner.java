@@ -7,8 +7,13 @@ import net.company.gui.Subscriber;
 public class Runner {
 
     public static void main(String[] args) {
-        Application.launch(Publisher.class, args);
-        //Application.launch(Subscriber.class, args);
-    }
+        if (args.length > 0) {
+            if (args[0].equals("-server")) {
+                Application.launch(Publisher.class, args);
+            }
+        } else {
+            Application.launch(Subscriber.class, args);
+        }
 
+    }
 }

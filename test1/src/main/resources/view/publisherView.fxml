@@ -9,12 +9,12 @@
 
     <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
         <Label fx:id="archiveNewsLabel" text="Архивные новости" />
-        <TextArea fx:id="archiveText" editable="false" />
+        <TextArea fx:id="archiveText" editable="false" wrapText="true" />
     </FlowPane>
 
     <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
         <Label fx:id="addNewsLabel" text="Новая новость" />
-        <TextArea fx:id="addNewsText" />
+        <TextArea fx:id="addNewsText" wrapText="true" />
         <Button fx:id="addNewsButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" onAction="#addNewsButtonClicked" text="Опубликовать" />
     </FlowPane>
    <opaqueInsets>
