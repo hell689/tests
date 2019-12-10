@@ -17,7 +17,7 @@ public class PublisherController {
         if (!addNewsText.getText().isEmpty()) {
             String text = addNewsText.getText();
             try {
-                MulticastSocketServer server = new MulticastSocketServer(6689, "224.1.2.3", 2);
+                MulticastSocketServer server = new MulticastSocketServer(6689, "233.55.221.16", 4);
                 server.send(text.getBytes());
                 text = server.recieve();
                 archiveText.appendText(text + "\n\n");

@@ -21,7 +21,7 @@ public class SubscriberController {
             @Override
             protected Void call() throws Exception {
                 String text;
-                try (MulticastSocketServer server = new MulticastSocketServer(6689, "224.1.2.3", 2);){
+                try (MulticastSocketServer server = new MulticastSocketServer(6689, "233.55.221.16", 4);){
                     while (true) {
                         text = server.recieve();
                         archiveText.appendText(text + "\n\n");
