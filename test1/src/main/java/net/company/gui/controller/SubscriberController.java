@@ -11,6 +11,8 @@ public class SubscriberController {
     @FXML
     private TextArea archiveText;
 
+    private MulticastSocketServer multicastSocketServer;
+
     private Task task;
 
     @FXML
@@ -21,19 +23,23 @@ public class SubscriberController {
             @Override
             protected Void call() throws Exception {
                 String text;
-                try (MulticastSocketServer server = new MulticastSocketServer(6689, "233.55.221.16", 4);){
+                try {
                     while (true) {
-                        text = server.recieve();
+                        text = multicastSocketServer.recieve();
                         archiveText.appendText(text + "\n\n");
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.err.println(e.getCause() + e.getMessage());
                 }
                 return null;
             }
         };
         new Thread(task).start();
     };
+
+    public void setMulticastSocketServer (MulticastSocketServer server) {
+        multicastSocketServer = server;
+    }
 
 
 }

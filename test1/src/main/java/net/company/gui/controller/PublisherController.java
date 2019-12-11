@@ -25,7 +25,7 @@ public class PublisherController {
                 server.leaveGroup();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("Ошибка сокета: " + e.getMessage());
             }
 
         }
