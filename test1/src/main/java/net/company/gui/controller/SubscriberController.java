@@ -13,20 +13,16 @@ public class SubscriberController {
 
     private MulticastSocketServer multicastSocketServer;
 
-    private Task task;
-
     @FXML
-    public void initialize(){
-        archiveText.appendText("init\n");
-        task = new Task<Void>() {
-
+    public void initialize() {
+        Task task = new Task() {
             @Override
             protected Void call() throws Exception {
                 String text;
                 try {
                     while (true) {
                         text = multicastSocketServer.recieve();
-                        archiveText.appendText(text + "\n\n");
+                        archiveText.appendText(text + "\n---------\n");
                     }
                 } catch (IOException e) {
                     System.err.println(e.getCause() + e.getMessage());
@@ -35,9 +31,9 @@ public class SubscriberController {
             }
         };
         new Thread(task).start();
-    };
+    }
 
-    public void setMulticastSocketServer (MulticastSocketServer server) {
+    public void setMulticastSocketServer(MulticastSocketServer server) {
         multicastSocketServer = server;
     }
 

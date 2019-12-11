@@ -42,7 +42,10 @@ public class SettingsAnalyzer {
                 pattern = Pattern.compile(PORT_PATTERN);
                 matcher = pattern.matcher(str);
                 if (matcher.find()) {
-                    settings[2] = matcher.group();
+                    String ip = matcher.group();
+                    if (Integer.parseInt(ip.substring(1,2)) >= 24 ) {
+                        settings[2] = ip;
+                    }
                     continue;
                 }
                 pattern = Pattern.compile(TTL_PATTERN);

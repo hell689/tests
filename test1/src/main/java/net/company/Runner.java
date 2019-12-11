@@ -5,6 +5,8 @@ import net.company.gui.Publisher;
 import net.company.gui.Subscriber;
 import net.company.util.SettingsAnalyzer;
 
+import java.util.HashMap;
+
 public class Runner {
 
     public static void main(String[] args) {
@@ -14,5 +16,6 @@ public class Runner {
         } else {
             Application.launch(Subscriber.class, settings);
         }
+
     }
 }

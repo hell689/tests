@@ -26,14 +26,14 @@ public class Subscriber extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        List<String> params = getParameters().getUnnamed();
+        multicastSocketServer = new MulticastSocketServer(
+                Integer.parseInt(params.get(2)), params.get(1));
         stage.setTitle(title);
         FXMLLoader loader = new FXMLLoader();
         URL xmlUrl = getClass().getResource("/view/subscriberView.fxml");
         loader.setLocation(xmlUrl);
         Parent root = loader.load();
-        List<String> params = getParameters().getUnnamed();
-        multicastSocketServer = new MulticastSocketServer(
-                Integer.parseInt(params.get(2)), params.get(1));
         SubscriberController controller = loader.getController();
         controller.setMulticastSocketServer(multicastSocketServer);
         Scene scene = new Scene(root);
@@ -45,6 +45,7 @@ public class Subscriber extends Application {
     @Override
     public void stop() throws Exception {
         multicastSocketServer.close();
+        multicastSocketServer = null;
         super.stop();
     }
 }
