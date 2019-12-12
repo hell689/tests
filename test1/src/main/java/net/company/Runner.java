@@ -5,11 +5,10 @@ import net.company.gui.Publisher;
 import net.company.gui.Subscriber;
 import net.company.util.SettingsAnalyzer;
 
-import java.util.HashMap;
-
 public class Runner {
 
     public static void main(String[] args) {
+        //Обработка параметров коммандной строки
         String[] settings = SettingsAnalyzer.analyzeSettings(args);
         if (settings[0].equals("server")) {
                 Application.launch(Publisher.class, settings);

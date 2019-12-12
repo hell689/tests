@@ -4,21 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.company.gui.controller.PublisherController">
+<VBox prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.company.gui.controller.PublisherController">
 
-    <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
-        <Label fx:id="archiveNewsLabel" text="Архивные новости" />
-        <TextArea fx:id="archiveText" editable="false" wrapText="true" />
+    <FlowPane alignment="TOP_CENTER" orientation="VERTICAL" style="-fx-padding: 5;">
+        <TitledPane collapsible="false" text="Архивные новости">
+        <ListView fx:id="archiveList" prefHeight="220" prefWidth="480" />
+        </TitledPane>
+      <opaqueInsets>
+         <Insets top="20.0" />
+      </opaqueInsets>
     </FlowPane>
-
-    <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
-        <Label fx:id="addNewsLabel" text="Новая новость" />
-        <TextArea fx:id="addNewsText" wrapText="true" />
-        <Button fx:id="addNewsButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" onAction="#addNewsButtonClicked" text="Опубликовать" />
+    <FlowPane alignment="TOP_CENTER" orientation="VERTICAL" style="-fx-padding: 5;" >
+        <TitledPane alignment="TOP_CENTER" collapsible="false" text="Новая новость">
+            <TextArea fx:id="addNewsText" prefWidth="480" wrapText="true" />
+        </TitledPane>
     </FlowPane>
-   <opaqueInsets>
-      <Insets top="10.0" />
-   </opaqueInsets>
-
+    <FlowPane alignment="TOP_RIGHT" style="-fx-padding: 10;">
+        <Button fx:id="addNewsButton" onAction="#addNewsButtonClicked" text="Опубликовать" />
+    </FlowPane>
 </VBox>

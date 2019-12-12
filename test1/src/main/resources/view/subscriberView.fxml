@@ -4,12 +4,14 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="net.company.gui.controller.SubscriberController"
-            prefHeight="400.0" prefWidth="500.0">
-    <FlowPane alignment="TOP_CENTER" hgap="5" orientation="VERTICAL" vgap="5">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="net.company.gui.controller.SubscriberController"
+      prefHeight="400.0" prefWidth="500.0">
+    <FlowPane alignment="TOP_CENTER" orientation="VERTICAL" style="-fx-padding: 5;">
+        <TitledPane text="Новости" collapsible="false">
         <Label fx:id="archiveNewsLabel" text="Новости" />
-        <TextArea fx:id="archiveText" prefHeight="350" editable="false" wrapText="true"/>
+        <ListView fx:id="archiveList" prefWidth="480" prefHeight="350" />
+        </TitledPane>
     </FlowPane>
 
 </VBox>

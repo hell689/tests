@@ -26,6 +26,8 @@ public class SettingsAnalyzer {
         settings[3] = DEFAULT_TTL;
 
         if (args.length > 0) {
+            // Проверяем параметры на соответсвие шаблонам.
+            // Если есть соответствие, устанавливаем соответствующий параметр
             for(String str : args) {
                 Pattern pattern = Pattern.compile(MODE_PATTERN);
                 Matcher matcher = pattern.matcher(str);

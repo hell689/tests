@@ -1,4 +1,4 @@
-package net.company.lan;
+package net.company.soc;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -8,8 +8,6 @@ import java.net.MulticastSocket;
 public class MulticastSocketServer implements AutoCloseable{
     private final int MESSAGE_SIZE = 2048;
     private int port;
-    private String address;
-    private int ttl;
     private MulticastSocket multicastSocket;
     private InetAddress inetAddress;
 
@@ -22,22 +20,10 @@ public class MulticastSocketServer implements AutoCloseable{
      */
     public MulticastSocketServer(int port, String address, int ttl) throws IOException {
         this.port = port;
-        this.address = address;
-        this.ttl = ttl;
         inetAddress = InetAddress.getByName(address);
         multicastSocket = new MulticastSocket(port);
         multicastSocket.setTimeToLive(ttl);
         multicastSocket.joinGroup(inetAddress);
-    }
-
-    /**
-     * Создание Multicast Socket соединения
-     * @param port Порт соединения
-     * @param address Адрес группы
-     */
-    public MulticastSocketServer(int port, String address) {
-        this.port = port;
-        this.address = address;
     }
 
     /**
@@ -59,11 +45,11 @@ public class MulticastSocketServer implements AutoCloseable{
         byte[] bytes = new byte[MESSAGE_SIZE];
         DatagramPacket datagramPacket = new DatagramPacket(bytes, bytes.length);
         multicastSocket.receive(datagramPacket);
-        return new String(datagramPacket.getData());
+        return new String(datagramPacket.getData()).trim();
     }
 
     /**
-     *
+     * Выход из группы
      * @throws IOException
      */
     public void leaveGroup() throws IOException {
