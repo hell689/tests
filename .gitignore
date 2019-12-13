@@ -26,3 +26,5 @@ hs_err_pid*
 
 test1/.idea
 test1/target
+test2/.idea
+test2/target
