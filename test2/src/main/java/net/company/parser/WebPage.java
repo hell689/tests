@@ -16,7 +16,7 @@ public class WebPage {
         this.codePage = codePage;
     }
 
-    public String getContent() {
+    public String getContent() throws ParserException {
         StringBuilder sb = new StringBuilder();
         URL pageURL = getUrl(pageAddress);
         URLConnection urlConnection = getURLConnection(pageURL);
@@ -27,27 +27,27 @@ public class WebPage {
                 sb.append(inputLine).append('\n');
             }
         } catch (IOException e) {
-            System.err.println(e.getMessage());
+            throw new ParserException(e.getMessage());
         }
         return sb.toString();
     }
 
-    private URL getUrl (String httpAdress) {
+    private URL getUrl (String httpAdress) throws ParserException {
         URL url = null;
         try {
             url = new URL(httpAdress);
         } catch (MalformedURLException e) {
-            System.err.println(e.getMessage());
+            throw new ParserException(e.getMessage());
         }
         return url;
     }
 
-    private URLConnection getURLConnection (URL url) {
+    private URLConnection getURLConnection (URL url) throws ParserException {
         URLConnection urlConnection = null;
         try {
             urlConnection = url.openConnection();
         } catch (IOException e) {
-            System.err.println(e.getMessage());
+            throw new ParserException(e.getMessage());
         }
         return urlConnection;
     }

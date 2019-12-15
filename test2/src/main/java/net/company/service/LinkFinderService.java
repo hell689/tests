@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface LinkFinderService {
 
-    List<WebLink> getLinksFromPage(String url);
+    List<WebLink> getLinksFromPage(String url) throws ServiceException;
 }

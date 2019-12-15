@@ -1,4 +1,81 @@
 
 body {
-    background: #eee;
+    background: #fff;
 }
+
+h1 {
+    text-align: center;
+}
+
+#linkLabelDiv, #linkTableDiv {
+    border: 2px solid;
+    padding: 10px 20px 10px 20px;
+    margin: 20px 20px 0px 20px;
+    font-size: 20pt;
+}
+
+#linkInputDiv {
+    border: 2px solid;
+    padding: 10px 20px 10px 20px;
+    margin: -2px 20px 20px 20px;
+    font-size: 20pt;
+}
+
+#linkInput {
+    border: 0px;
+    width: 100%;
+    font-size: 20pt;
+    background-color: #fff;
+}
+#linkInput:focus {
+    outline: none;
+    border: 0px;
+    background-color: #fff;
+}
+#linkInput:active {
+    outline: none;
+    border: 0px;
+    background-color: #fff;
+}
+
+.buttonDiv{
+    width: 100%;
+    text-align: center;
+}
+
+#linkButton, #eraseButton {
+    font-size: 18pt;
+}
+
+#tableDiv {
+    border: 2px solid;
+    padding: 10px 20px 10px 20px;
+    margin: -2px 20px 20px 20px;
+    font-size: 20pt;
+}
+
+#linkTable {
+    padding:5px;
+    margin: 0px;
+    width: 96%;
+    text-align: left;
+    font-size: 13pt;
+}
+
+#rowTitle {
+    padding:5px;
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+#waitDiv {
+    display: none;
+    font-weight: bold;
+    font-size: 16pt;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+

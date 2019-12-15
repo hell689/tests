@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LinkParser {
-    private final String LINK_PATTERN = "<a href=\"([A-Za-z0-9:\\/\\._\\-&=?]+)\"[ A-Za-zА-Яа-я0-9-=\"\\/\\._]+>([A-Za-aА-Яа-я0-9\\.\"\\-\\/_=$& ?!]+)<\\/a>";
+    private final String LINK_PATTERN = "<a href=\"(http[A-Za-z0-9:\\/\\._\\-&=?]+)\"[ A-Za-zА-Яа-я0-9-=\"\\/\\._]*>([A-Za-zА-Яа-я0-9\\.\"\\-\\/_=$& ?!]+)<\\/a>";
 
     public List<WebLink> getLinksFromHtml (String htmlText) {
         List<WebLink> webLinks = new ArrayList<>();
