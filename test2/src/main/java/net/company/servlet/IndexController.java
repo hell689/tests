@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collections;
 import java.util.List;
 
 @WebServlet(name = "IndexController", urlPatterns = {"/index.html"}, asyncSupported = true)
@@ -28,20 +27,17 @@ public class IndexController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
         String link = req.getParameter("linkInput");
         LinkFinderService finderService = new LinkFinderSeviceImpl();
-
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
         try(PrintWriter writer = resp.getWriter()) {
-
-            JSONObject json = new JSONObject();
             try {
                 List<WebLink> webLinks = finderService.getLinksFromPage(link);
+                JSONObject json = new JSONObject();
                 json.put("links", webLinks);
+                writer.print(json.toString());
             } catch (ServiceException e) {
                 resp.setStatus(400);
-                json.put("error", "Link Error");
             }
-            resp.setCharacterEncoding("UTF-8");
-            resp.setContentType("application/json");
-            writer.print(json.toString());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

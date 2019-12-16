@@ -36,9 +36,9 @@ $(document).ready(function() {
                 result = null;
             },
             statusCode: {
-                400: function(){
-                    alert("Ошибка. Проверте правильность написания ссылки");
+                400: function(result, result){
                     $("#waitDiv").css("display", "none");
+                    alert("Ошибка. Проверте правильность написания ссылки");
                 }
             },
             error: function(e)

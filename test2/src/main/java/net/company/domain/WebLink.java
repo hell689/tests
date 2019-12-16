@@ -1,5 +1,11 @@
 package net.company.domain;
 
+/**
+ * class WebLink
+ * Класс веб-ссылка.
+ *  link - адрес ссылки
+ *  name - имя ссылки (текст ссылки)
+ */
 public class WebLink {
     private String name;
     private String link;

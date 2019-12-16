@@ -1,5 +1,8 @@
 package net.company.parser;
-
+/**
+ * class ParserException
+ * класс используется для передачи Exception "наверх"
+ */
 public class ParserException extends Exception {
     public ParserException() {
     }
