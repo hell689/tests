@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "IndexController", urlPatterns = {"/index.html"}, asyncSupported = true)
+@WebServlet(name = "IndexController", urlPatterns = {"/index.html"})
 public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,16 +26,19 @@ public class IndexController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
         String link = req.getParameter("linkInput");
+        System.out.println("Ссылка для поиска: " + link);
         LinkFinderService finderService = new LinkFinderSeviceImpl();
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
         try(PrintWriter writer = resp.getWriter()) {
             try {
                 List<WebLink> webLinks = finderService.getLinksFromPage(link);
+                System.out.println("Найдено ссылок: " + webLinks.size());
                 JSONObject json = new JSONObject();
                 json.put("links", webLinks);
                 writer.print(json.toString());
             } catch (ServiceException e) {
+                System.err.println("Возникла ошибка при парсинге: " + e.getMessage());
                 resp.setStatus(400);
             }
         } catch (IOException e) {

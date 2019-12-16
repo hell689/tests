@@ -16,6 +16,7 @@
     <form>
             <div id="linkLabelDiv"><label for="linkInput" id="inputLabel">Анализируемая страница</label></div>
         <div id="linkInputDiv"><input id="linkInput" name="linkInput" required></div>
+        <div id="errorDiv"></div>
         <div class="buttonDiv"><input type="button" id="linkButton" value="Анализировать"></div>
     </form>
     <c:url var="waitGifUrl" value="/img/wait.gif"/>
