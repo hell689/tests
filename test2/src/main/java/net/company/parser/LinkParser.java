@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 public class LinkParser {
     // регулярное выражение для нахождения ссылок
-    private final String LINK_PATTERN = "(?i)<a href=\"(http[A-Za-z0-9:\\/\\._\\-&=?]+)\"[ A-Za-zА-Яа-я0-9-=\"\\/\\._]*>([A-Za-zА-Яа-я0-9\\.\"\\-\\/_=$& ?!]+)<\\/a>";
+    private final String LINK_PATTERN = "(?i)<a href=\"(http[A-Za-z0-9:\\/\\._\\-&=?]+)\"[ A-Za-zА-Яа-я0-9-=\"\\/\\._]*>([A-Za-zА-Яа-я0-9\\.\"\\-\\/_=$:,;+& ?!]+)<\\/a>";
 
     /**
      * Метод нахождения ссылок в html-документе

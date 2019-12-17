@@ -41,7 +41,7 @@ public class WebPage {
             while ((inputLine = br.readLine()) != null) {
                 sb.append(inputLine).append('\n');
             }
-        } catch (IOException e) {
+        } catch (IOException | IllegalArgumentException e) {
             throw new ParserException(e.getMessage());
         }
         htmlText = sb.toString();

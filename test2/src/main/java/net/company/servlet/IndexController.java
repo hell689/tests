@@ -6,7 +6,6 @@ import net.company.service.LinkFinderSeviceImpl;
 import net.company.service.ServiceException;
 import org.json.JSONObject;
 
-import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "IndexController", urlPatterns = {"/index.html"})
+@WebServlet(name = "IndexController", urlPatterns = {"/index.html"}, loadOnStartup = 1)
 public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,7 +41,7 @@ public class IndexController extends HttpServlet {
                 resp.setStatus(400);
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
 
     }
