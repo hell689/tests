@@ -4,10 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SettingsAnalyzer {
+    // Параметры по-умолчанию
     private final static String DEFAULT_ADDRESS = "233.55.221.16";
     private final static String DEFAULT_PORT = "7654";
     private final static String DEFAULT_TTL = "2";
     private final static String DEFAULT_MODE = "client";
+    // Паттерны для определения входных параметров
     private final static String IP_PATTERN = "(2[2-3]\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}";
     private final static String MODE_PATTERN = "client|server";
     private final static String PORT_PATTERN = "\\d{4}";

@@ -15,16 +15,17 @@ public class Publisher extends Application {
     // Заголовок окна
     private String title = "Publisher";
 
-    private MulticastSocketServer multicastSocketServer;
-
     @Override
     public void start(Stage stage) throws Exception {
+        // Получаем параметры
         List<String> params = getParameters().getUnnamed();
         stage.setTitle(title);
+        //Загружаем FXML разметку
         FXMLLoader loader = new FXMLLoader();
         URL xmlUrl = getClass().getResource("/view/publisherView.fxml");
         loader.setLocation(xmlUrl);
         Parent root = loader.load();
+        // Получаем контроллер и передаем в него параметры и Stage
         PublisherController controller = loader.getController();
         controller.process(stage, params);
         Scene scene = new Scene(root);

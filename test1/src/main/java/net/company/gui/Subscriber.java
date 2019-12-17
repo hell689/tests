@@ -16,12 +16,16 @@ public class Subscriber extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        // Получаем параметры
         List<String> params = getParameters().getUnnamed();
+        // устанавливаем заголовок окна
         stage.setTitle(title);
+        //Загружаем FXML разметку
         FXMLLoader loader = new FXMLLoader();
         URL xmlUrl = getClass().getResource("/view/subscriberView.fxml");
         loader.setLocation(xmlUrl);
         Parent root = loader.load();
+        // Получаем контроллер и передаем в него параметры и Stage
         SubscriberController controller = loader.getController();
         controller.process(stage, params);
         Scene scene = new Scene(root);

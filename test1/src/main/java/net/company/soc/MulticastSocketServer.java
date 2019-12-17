@@ -6,6 +6,7 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 
 public class MulticastSocketServer implements AutoCloseable{
+    // размер прининмаемого сообщения
     private final int MESSAGE_SIZE = 2048;
     private int port;
     private MulticastSocket multicastSocket;
